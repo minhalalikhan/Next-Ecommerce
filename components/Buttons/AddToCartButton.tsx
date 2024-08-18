@@ -16,17 +16,24 @@ function AddToCartButton({ product }: Props) {
     const isAdded = Items.some((item) => item.product.productID === product.productID)
     const Dispatch = useDispatch()
 
+    function AddtoCart() {
+        Dispatch(Additem({ product: product, count: 1 }))
+    }
+    function RemovefromCart() {
+        Dispatch(RemoveItem({ product: product, count: 1 }))
+    }
+
     if (isAdded)
         return (
             <Button Text={ 'Remove from Cart' }
-                onclick={ () => Dispatch(RemoveItem({ product: product, count: 1 })) }
+                onclick={ RemovefromCart }
                 className='border-black  text-red-800 border-2 rounded-md hover:cursor-pointer hover:bg-slate-100
         ' />
         )
 
     return (
         <Button Text='Add to Cart'
-            onclick={ () => Dispatch(Additem({ product: product, count: 1 })) }
+            onclick={ AddtoCart }
             className='border-black bg-black text-white border-2 rounded-md hover:cursor-pointer hover:bg-slate-600
         ' />
     )

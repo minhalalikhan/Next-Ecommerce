@@ -17,7 +17,11 @@ function ProductCard({ product }: Props) {
         <div className=' p-2 w-[250px] shadow-lg rounded-sm' style={ {} }>
             <div className='w-full h-[200px]'>
                 {/* image with colored blur shadow */ }
-                <Image alt='' className='h-full w-full' src={ "https://picsum.photos/id/" + (product.productID) + "/300/300" } />
+                <Image alt=''
+                    className='h-full w-full'
+                    width={ 200 }
+                    height={ 200 }
+                    src={ "https://picsum.photos/id/" + (product.productID) + "/300/300" } />
 
             </div>
             <div className='flex flex-col gap-1 px-3'>

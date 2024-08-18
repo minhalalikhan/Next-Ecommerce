@@ -9,7 +9,7 @@ import { RootState } from '@/store';
 
 type Props = {}
 
-async function CartNavlink({ }: Props) {
+function CartNavlink({ }: Props) {
 
     const count = useSelector((state: RootState) => state.Cart.Total_count)
 
