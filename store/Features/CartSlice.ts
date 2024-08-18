@@ -45,7 +45,8 @@ const CartSlice = createSlice({
             }
             else {
                 //  ensure that cart Quantity does not exceed available quanity
-
+                if (AddedItem.quantityInStock < AddedCount + check.count)
+                    AddedCount = AddedItem.quantityInStock - check.count
             }
 
 
