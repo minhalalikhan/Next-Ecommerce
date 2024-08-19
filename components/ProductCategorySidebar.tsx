@@ -4,13 +4,14 @@ import { getCategories } from '@/lib/backend'
 import { useDispatch, useSelector } from 'react-redux'
 import { RootState } from '@/store'
 import { ChangeCategory } from '@/store/Features/ProductsSlice'
+import { product } from '@/Customtypes'
 
 
 type Props = {}
 
 function ProductCategorySidebar({ }: Props) {
 
-    const CategoryList = getCategories()
+    const CategoryList: string[] = getCategories()
     const ActiveCategory = useSelector((state: RootState) => state.Products.ActiveCategory)
     const Dispatch = useDispatch()
     function changeCategory(category: string) {

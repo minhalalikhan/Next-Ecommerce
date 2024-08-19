@@ -38,7 +38,7 @@ export function getPages(keyword = '') {
 
 export function getCategories() {
 
-    let response: any = []
+    let response: string[] = []
 
     ProductData.forEach((item) => {
         if (!response.includes(item.keyword)) {

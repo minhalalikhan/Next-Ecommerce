@@ -1,7 +1,7 @@
 
+import { product } from "@/Customtypes"
 
-
-export const ProductData = [{
+export const ProductData: product[] = [{
     "productID": 1,
     "productTitle": "Ultra Mobile Pro",
     "description": "A powerful smartphone with a sleek design and top-notch performance.",
