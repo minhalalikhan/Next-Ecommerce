@@ -1,3 +1,4 @@
+import { product } from "@/Customtypes";
 import { ProductData } from "./Data"
 
 export function getProducts(keyword = '', page = 1) {
@@ -37,7 +38,7 @@ export function getPages(keyword = '') {
 
 export function getCategories() {
 
-    let response = []
+    let response: any = []
 
     ProductData.forEach((item) => {
         if (!response.includes(item.keyword)) {
@@ -47,25 +48,31 @@ export function getCategories() {
     return response
 }
 
-export function getProductDetails() {
+export function getProductDetails(productID: number) {
 
+    if (productID) {
+        console.log('Product ID', productID)
+        const data = ProductData.find((item) => item.productID === productID)
+        console.log('data', data)
+        return data
+    }
 }
 
 export function getProductReviews() {
 
 }
 
-export function getSimilarProducts(productId) {
-    // return products with similar keywords and exclude product ID
-}
+// export function getSimilarProducts(productId) {
+//     // return products with similar keywords and exclude product ID
+// }
 
-export function CheckQuantity(productId, quantity) {
-    //check if current quantiy is within available quanity
-}
+// export function CheckQuantity(productId, quantity) {
+//     //check if current quantiy is within available quanity
+// }
 
-export function getUserDetails(userId) {
+// export function getUserDetails(userId) {
 
-}
+// }
 
 export function getUserCart() {
 

@@ -19,3 +19,15 @@ export type Cart = {
     TotalCount: number,
     Items: []
 }
+
+export type CartState = {
+    Total_count: number;
+    Items: CartItem[],
+    subtotal: number
+}
+
+export type CartItem = {
+    product: product,
+    count: number
+
+}

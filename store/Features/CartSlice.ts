@@ -1,19 +1,9 @@
 // store/slices/counterSlice.ts
-import { product } from '@/Customtypes';
+import { CartItem, CartState, product } from '@/Customtypes';
 import { createSlice, PayloadAction, createSelector } from '@reduxjs/toolkit';
 
 // Define a type for the slice state
-interface CartState {
-    Total_count: number;
-    Items: { product: product, count: number }[],
-    subtotal: number
-}
 
-type CartItem = {
-    product: product,
-    count: number
-
-}
 
 // Define the initial state using that type
 const initialState: CartState = {

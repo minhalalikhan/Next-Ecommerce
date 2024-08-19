@@ -2,6 +2,10 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { RootState } from '@/store'
+import Image from 'next/image'
+import { CartItem } from '@/Customtypes'
+import StarRating from '@/components/StarRating'
+import ItemQuantityPicker from '@/components/ItemQuantityPicker'
 
 
 type Props = {}
@@ -16,9 +20,8 @@ export default function Cart({ }: Props) {
             <h2>My Cart</h2>
             {/* Show list of Items */ }
             <div className='flex  flex-col w-full gap-1  border-t-2'>
-                { CartItems.map((items, i) => {
-                    return <>
-                    </>
+                { CartItems.map((item, i) => {
+                    return <CartItemCard key={ i } CartItem={ item } />
                 }) }
             </div>
             {/* show total and discount */ }
@@ -34,14 +37,37 @@ export default function Cart({ }: Props) {
 }
 
 type CartProp = {
-    CartItem: {
-        product: Object,
-        count: number
-    }
+    CartItem: CartItem
 }
 function CartItemCard({ CartItem }: CartProp) {
 
-    return <div>
-        { CartItem.count }
+    const Product = CartItem.product
+
+    return <div className='flex flex-row justify-between p-2 border-b-2'>
+        <Image
+            alt=''
+
+            width={ 300 }
+            height={ 200 }
+            src={ "https://picsum.photos/id/" + (Product.productID) + "/300/300" }
+        />
+        <div className='flex flex-col '>
+            <h2>{ Product.productTitle }</h2>
+            <h4>{ Product.description }</h4>
+            <h4>Seller : { Product.seller }</h4>
+            <StarRating rating={ Product.rating } />
+        </div>
+        <div className='flex flex-col gap-1'>
+            {/* Price per Item  */ }
+            <h4>Price : { Product.price }</h4>
+            {/* Quantity picker */ }
+            <div className='flex flex-row'>
+                <ItemQuantityPicker ProductID={ Product.productID } />
+            </div>
+            {/* Subtotal  */ }
+            <div>
+
+            </div>
+        </div>
     </div>
 }

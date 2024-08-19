@@ -1,14 +1,14 @@
 import Link from 'next/link'
 
 type Props = {
-    text: string,
+    children: React.ReactNode
     route: string
 }
 
-export default function NavLinkButton({ text, route }: Props) {
+export default function NavLinkButton({ children, route }: Props) {
     return (
         <Link href={ route } className=''>
-            { text }
+            { children }
         </Link>
     )
 }
